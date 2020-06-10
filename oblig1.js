@@ -1,8 +1,34 @@
 // JavaScript source code
 
-var year = "2020";
-var month = "04";
-var day = "31";
+var day = "30";
+var month = "01";
+var year = "2021";
+
+function isDateValid(dato) {
+
+    if (isLeapYear(year) && monthLength(month) && dayFebruaryLeapYear(day)) {
+        return true;
+    }
+    else if (yearLength(year) && monthLength(month) && dayFebruaryNormal(day)) {
+        return true;
+    }
+    else if (yearLength(year) && monthLength(month) && dayNormalLength(day)) {
+        return true;
+    }
+    else if (yearLength(year) && monthLength(month) && dayNotNormalLength(day)) {
+        return true;
+    }
+
+    isDatoLengthValid();
+    dots();
+    yearLength();
+    isLeapYear(year);
+    monthLength(month);
+    dayFebruaryLeapYear(day);
+    dayFebruaryNormal();
+    dayNormalLength();
+    dayNotNormalLength();
+}
 
 function isDatoLengthValid(dato) {
     return dato.length == 10;
@@ -25,23 +51,25 @@ function monthLength(month) {
 }
 
 function dayNormalLength(day) {
-    return day.length === 2 && day >= "01" && day <= "31";
-}
-
-function dayNotNormalLength(day) {
-    return day.length === 2 && day >= "01" && day <= "30";
-}
-
-function dayFebruaryNormal(day) {
-    return day.length === 2 && day >= "01" && day <= "28";
-}
-
-function dayFebruaryLeapYear(day) {
-    if (isLeapYear) {
-        return day.length === 2 && day >= "01" && day <= "29";
+    if (month != "02") {
+        return day.length === 2 && day >= "01" && day <= "31";
     }
 }
 
-function isDateValid(dato) {
+function dayNotNormalLength(day) {
+        return day.length === 2 && day >= "01" && day <= "30";
+}
+
+function dayFebruaryNormal(day) {
+    if (month == "02") {
+    return day.length === 2 && day >= "01" && day <= "28";
+    }
+
+}
+
+function dayFebruaryLeapYear(day) {
+    if (month == "02") {
+    return day.length === 2 && day >= "01" && day <= "29";
+    }
 
 }

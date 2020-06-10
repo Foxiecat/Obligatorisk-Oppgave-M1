@@ -13,43 +13,51 @@
     <script src="oblig1.js"></script>
     <script>
 
-        QUnit.test("Text length is 10 ", function (assert) {
+        
+
+        QUnit.test(`The date is valid!`, function (assert) {
+            const isValid = isDateValid("29.02.2020");
+            assert.equal(isValid, true);
+        });
+        
+
+        QUnit.test(`Text length is 10`, function (assert) {
             const isValid = isDatoLengthValid('03.02.2022');
             assert.equal(isValid, true);
         });
 
-        QUnit.test(`The year is ${yearLength("2020")}`, function (assert) {
-            const isValid = yearLength(year);
+        QUnit.test(`The year is valid`, function (assert) {
+            const isValid = yearLength("2020");
             assert.equal(isValid, true);
         });
 
-        QUnit.test(`Leap year is ${isLeapYear("2024")}`, function (assert) {
-            const isValid = isLeapYear(year);
+        QUnit.test(`Leap year is valid`, function (assert) {
+            const isValid = isLeapYear("2024");
             assert.equal(isValid, true);
         });
 
-        QUnit.test(`The month is ${monthLength(month)}`, function (assert) {
-            const isValid = monthLength(month);
+        QUnit.test(`The month is valid`, function (assert) {
+            const isValid = monthLength("02");
             assert.equal(isValid, true);
         });
 
-        QUnit.test(`The 31's days are ${dayNormalLength(day)}`, function (assert) {
-            const isValid = dayNormalLength(day);
+        QUnit.test(`The 31's days are valid`, function (assert) {
+            const isValid = dayNormalLength("31");
             assert.equal(isValid, true);
         });
 
-        QUnit.test(`The 28 day is ${dayFebruaryNormal(day)}`, function (assert) {
-            const isValid = dayFebruaryNormal(day);
+        QUnit.test(`The 28 day is valid`, function (assert) {
+            const isValid = dayFebruaryNormal("28");
             assert.equal(isValid, true);
         });
 
-        QUnit.test(`The leap day is ${dayFebruaryLeapYear(day)}`, function (assert) {
-            const isValid = dayFebruaryLeapYear(day);
+        QUnit.test(`The leap day is valid`, function (assert) {
+            const isValid = dayFebruaryLeapYear("29");
             assert.equal(isValid, true);
         });
 
-        QUnit.test(`The 30's days are ${dayNotNormalLength(day)}`, function (assert) {
-            const isValid = dayNotNormalLength(day);
+        QUnit.test(`The 30's days are valid`, function (assert) {
+            const isValid = dayNotNormalLength("30");
             assert.equal(isValid, true);
         });
 
