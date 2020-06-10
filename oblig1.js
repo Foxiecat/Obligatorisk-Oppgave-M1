@@ -1,7 +1,7 @@
 // JavaScript source code
 
-var day = "30";
-var month = "01";
+var day = "31";
+var month = "08";
 var year = "2021";
 
 function isDateValid(dato) {
@@ -51,13 +51,15 @@ function monthLength(month) {
 }
 
 function dayNormalLength(day) {
-    if (month != "02") {
+    if (month != "02" && month != "04" && month != "06" && month != "09" && month != "11") {
         return day.length === 2 && day >= "01" && day <= "31";
     }
 }
 
 function dayNotNormalLength(day) {
+    if (month != "02") {
         return day.length === 2 && day >= "01" && day <= "30";
+    }
 }
 
 function dayFebruaryNormal(day) {
