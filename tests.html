@@ -19,7 +19,11 @@
             const isValid = isDateValid("31.12.2020");
             assert.equal(isValid, true);
         });
-        
+
+        QUnit.test("The dots are there!", function (assert) {
+            const isValid = dots("31.12.2020");
+            assert.equal(isValid, true);
+        });
 
         QUnit.test(`Text length is 10`, function (assert) {
             const isValid = isDatoLengthValid('03.02.2022');
@@ -52,7 +56,7 @@
         });
 
         QUnit.test(`The leap day is valid`, function (assert) {
-            const isValid = is29Valid("29");
+            const isValid = is29Valid("29.02.2020");
             assert.equal(isValid, true);
         });
 

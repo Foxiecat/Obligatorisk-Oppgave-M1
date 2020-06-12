@@ -6,9 +6,12 @@ function isDateValid(dato) {
 
     const year = dato.substring(6,10);
     const month = dato.substring(3,5);
-    const day = dato.substring(0,2);
+    const day = dato.substring(0, 2);
+    var dot = dato;
 
-    if (isDatoLengthValid(dato) && (is28Valid(day,year) || is29Valid(day,year) || dayNormalLength(day, month) || dayNotNormalLength(day, month)) && monthLength(month) && yearLength(year)) {
+    
+
+    if (isDatoLengthValid(dato) && (is28Valid(day, year) || is29Valid(day, year) || dayNormalLength(day, month) || dayNotNormalLength(day, month)) && monthLength(month) && yearLength(year)) {
         return true;
     }
 
@@ -28,7 +31,10 @@ function isDatoLengthValid(dato) {
 }
 
 function dots(dot) {
-    return dot = ".";
+    if (dot.IndexOf(".") == 2 &&
+        dot.lastIndexOf(".") == 5) {
+        return true;
+    }
 }
 
 function yearLength(year) {
@@ -55,8 +61,8 @@ function dayNotNormalLength(day, month) {
     }
 }
 
-function is29Valid(day,year) {
-    if (day <= 29 && isLeapYear(year)) {
+function is29Valid(day,month,year) {
+    if (day <= 29 && month == 02 && isLeapYear(year)) {
         return true;
     }
 }
