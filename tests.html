@@ -16,7 +16,7 @@
         
 
         QUnit.test(`The date is valid!`, function (assert) {
-            const isValid = isDateValid("28.02.2020");
+            const isValid = isDateValid("31.12.2020");
             assert.equal(isValid, true);
         });
         
@@ -47,12 +47,12 @@
         });
 
         QUnit.test(`The 28 day is valid`, function (assert) {
-            const isValid = dayFebruaryNormal("28");
+            const isValid = is28Valid("28");
             assert.equal(isValid, true);
         });
 
         QUnit.test(`The leap day is valid`, function (assert) {
-            const isValid = dayFebruaryLeapYear("29");
+            const isValid = is29Valid("29");
             assert.equal(isValid, true);
         });
 
