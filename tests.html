@@ -41,7 +41,12 @@
         });
 
         QUnit.test(`The month is valid`, function (assert) {
-            const isValid = monthLength("02");
+            const isValid = monthLength("12");
+            assert.equal(isValid, true);
+        });
+
+        QUnit.test("The month is within 1-12", function (assert) {
+            const isValid = monthLength("03");
             assert.equal(isValid, true);
         });
 
