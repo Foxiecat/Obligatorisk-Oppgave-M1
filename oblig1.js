@@ -11,18 +11,7 @@ function isDateValid(dato) {
 
     if (isDatoLengthValid(dato) && (is28Valid(day, year) || is29Valid(day, month, year) || dayNormalLength(day, month) || dayNotNormalLength(day, month)) && monthLength(month) && yearLength(year) && dots(dot)) {
         return true;
-
-    } 
-
-    isDatoLengthValid();
-    dots();
-    yearLength();
-    isLeapYear();
-    monthLength();
-    is29Valid();
-    is28Valid();
-    dayNormalLength();
-    dayNotNormalLength();
+    } else { return false; }
 }
 
 function isDatoLengthValid(dato) {

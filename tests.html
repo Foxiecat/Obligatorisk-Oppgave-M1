@@ -20,54 +20,54 @@
             assert.equal(isValid, true);
         });
 
-        QUnit.test("The dots are there!", function (assert) {
-            const isValid = dots("31.12.2020");
-            assert.equal(isValid, true);
+        QUnit.test("The dots aren't there!", function (assert) {
+            const isValid = isDateValid("31/12/2020");
+            assert.equal(isValid, false);
         });
 
-        QUnit.test(`Text length is 10`, function (assert) {
-            const isValid = isDatoLengthValid('31.01.2022');
-            assert.equal(isValid, true);
+        QUnit.test(`Text length isn't 10`, function (assert) {
+            const isValid = isDateValid('31222.01.2022');
+            assert.equal(isValid, false);
         });
 
-        QUnit.test(`The year is valid`, function (assert) {
-            const isValid = yearLength("2020");
-            assert.equal(isValid, true);
+        QUnit.test(`The year isn't valid`, function (assert) {
+            const isValid = isDateValid("2020000");
+            assert.equal(isValid, false);
         });
 
-        QUnit.test(`Leap year is valid`, function (assert) {
-            const isValid = isLeapYear("2024");
-            assert.equal(isValid, true);
+        QUnit.test(`Leap year isn't valid`, function (assert) {
+            const isValid = isDateValid("2023");
+            assert.equal(isValid, false);
         });
 
-        QUnit.test(`The month is valid`, function (assert) {
-            const isValid = monthLength("12");
-            assert.equal(isValid, true);
+        QUnit.test(`The month isn't valid`, function (assert) {
+            const isValid = isDateValid("00");
+            assert.equal(isValid, false);
         });
 
-        QUnit.test("The month is within 1-12", function (assert) {
-            const isValid = monthLength("03");
-            assert.equal(isValid, true);
+        QUnit.test("The month isn't within 1-12", function (assert) {
+            const isValid = isDateValid("13");
+            assert.equal(isValid, false);
         });
 
-        QUnit.test("The 31st day is valid", function (assert) {
-            const isValid = dayNormalLength("31", "01");
-            assert.equal(isValid, true);
+        QUnit.test("The 31st day isn't valid", function (assert) {
+            const isValid = isDateValid("33", "01");
+            assert.equal(isValid, false);
         });
 
-        QUnit.test(`The 28 day is valid`, function (assert) {
-            const isValid = is28Valid("28");
-            assert.equal(isValid, true);
+        QUnit.test(`The 28 day isn't valid`, function (assert) {
+            const isValid = isDateValid("30");
+            assert.equal(isValid, false);
         });
 
-        QUnit.test(`The leap day is valid`, function (assert) {
-            const isValid = is29Valid("29","02","2020");
-            assert.equal(isValid, true);
+        QUnit.test(`The leap day isn't valid`, function (assert) {
+            const isValid = isDateValid("29","02","2020");
+            assert.equal(isValid, false);
         });
 
-        QUnit.test(`The 30's days are valid`, function (assert) {
-            const isValid = dayNotNormalLength("30","04");
-            assert.equal(isValid, true);
+        QUnit.test(`The 30's days aren't valid`, function (assert) {
+            const isValid = isDateValid("34","04");
+            assert.equal(isValid, false);
         });
 
     </script>
