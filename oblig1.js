@@ -7,11 +7,9 @@ function isDateValid(dato) {
     const year = dato.substring(6,10);
     const month = dato.substring(3,5);
     const day = dato.substring(0, 2);
-    const dot = dato.substring(2,3);
+    let dot = dato;
 
-    const 29days = is29Valid();
-    
-    if (isDatoLengthValid(dato) && (is28Valid(day, year) || is29Valid(day, month, year) || dayNormalLength(day, month) || dayNotNormalLength(day, month)) && monthLength(month) && yearLength(year)) {
+    if (isDatoLengthValid(dato) && (is28Valid(day, year) || is29Valid(day, month, year) || dayNormalLength(day, month) || dayNotNormalLength(day, month)) && monthLength(month) && yearLength(year) && dots(dot)) {
         return true;
 
     } 
@@ -32,9 +30,7 @@ function isDatoLengthValid(dato) {
 }
 
 function dots(dot) {
-    if (dot.IndexOf(".") == 2 && dot.lastIndexOf(".") == 5) {
-        return true;
-    } else { return false; }
+    return dot.indexOf(".") == 2 && dot.lastIndexOf(".") == 5;
 }
 
 function yearLength(year) {
